@@ -1,23 +1,23 @@
 - content_for(:section_header) do
   .section_header{:class => 'events'}
-    %h1 Hey there!
+    %h1 Hey là bas
 
 #user_home
   #profile
-    %h2 What would you like to do?
+    %h2 Que voudriez vous faire ?
     %ul
-      %li= link_to "View your profile", person_path(current_person)
-      %li= link_to "Edit your profile", edit_person_path(current_person)
-      %li= link_to "Add a friend to the directory", new_person_path
+      %li= link_to "Voir votre profil", person_path(current_person)
+      %li= link_to "Editer votre profil", edit_person_path(current_person)
+      %li= link_to "Ajouter un ami à l'annuaire", new_person_path
       - if current_person.companies.blank?
-        %li= link_to "Add your company", new_company_path
+        %li= link_to "Ajouter votre société", new_company_path
   #authentications
-    %h2 Linked Accounts
+    %h2 Comptes liés
     = semantic_form_for(SignInData.new(:email => current_user.email), :url => user_sessions_path) do |f|
       = f.inputs do
         = f.input :email, :as => :hidden
-        = f.input :provider, :collection => Authentication::PROVIDER_OPTIONS, :prompt => 'Pick a service…', :label => 'Add an account'
+        = f.input :provider, :collection => Authentication::PROVIDER_OPTIONS, :prompt => 'Choisissez un service…', :label => 'Ajoutez un compte'
       = f.buttons do
-        = f.commit_button "Add it!"
+        = f.commit_button "Ajoutez le!"
 
     = render :partial => 'authentications/list', :object => current_user.authentications

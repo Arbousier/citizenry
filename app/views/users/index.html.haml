@@ -7,7 +7,7 @@
           %strong Admin
         = "User #{user.id}: #{user.name} -"
         = mail_to user.email
-        = link_to "Delete", user_path(user), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+        = link_to "Supprimer", user_path(user), :confirm => 'Etes vous sûr?', :method => :delete, :class => 'delete'
         = link_to ((user.admin? ? 'Un-' : '') + 'adminify').capitalize, adminify_user_path(user), :method => :post, :class => 'make_admin'
         = image_tag(normalize_url(user.avatar_url), :size => '30x30', :align => 'right') if user.avatar_url
         %ul
@@ -20,7 +20,7 @@
               = "Authentication #{auth.id}: #{auth.info[:name]}"
               = "(#{auth.info[:nickname]})" if auth.info[:nickname]
               = "via #{provider_name(auth.provider)}"
-              = link_to "Delete", authentication_path(auth), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+              = link_to "Supprimer", authentication_path(auth), :confirm => 'Etes vous sûr ?', :method => :delete, :class => 'delete'
               - if auth.matching_person && auth.matching_person != user.person
                 %ul
                   %li

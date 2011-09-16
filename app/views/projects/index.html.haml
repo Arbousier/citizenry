@@ -1,12 +1,12 @@
 - content_for(:section_header) do
   .section_header{:class => 'projects'}
-    %h1= semantic_pluralize(@projects.respond_to?(:total_entries) ? @projects.total_entries : @projects.size, "#{@tag} project<span class='desktop-only'> or product</span>".strip.titleize.html_safe, "#{@tag} projects<span class='desktop-only'> & products</span>".strip.titleize.html_safe)
-    = link_to "+ Add a Project", new_project_path, :class => 'new'
+    %h1= semantic_pluralize(@projects.respond_to?(:total_entries) ? @projects.total_entries : @projects.size, "#{@tag} projet<span class='desktop-only'> ou produit</span>".strip.titleize.html_safe, "#{@tag} projets<span class='desktop-only'> & produits</span>".strip.titleize.html_safe)
+    = link_to "+ Ajouter un projet", new_project_path, :class => 'new'
     #view_options
       %span.sorting
-        %strong Sort by:
-        = sort_link(:name) + ","
-        = sort_link(:created_at, :label => "Date added", :default_order => :desc, :is_default => :desc) + ","
-        = sort_link(:random)
+        %strong Trier par:
+        = sort_link(:name, :label => "Nom") + ","
+        = sort_link(:created_at, :label => "Date d'ajout", :default_order => :desc, :is_default => :desc) + ","
+        = sort_link(:random, :label => "Aléatoire")
 
 = render :partial => 'projects/list', :object => @projects

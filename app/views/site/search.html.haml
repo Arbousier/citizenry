@@ -3,10 +3,10 @@
     %h1= semantic_pluralize(@results.present? ? @results.total_entries : 0, "search result") + " for &#8220;#{params[:query]}&#8221;".html_safe
 
 - if @results.blank?
-  %h2 Nothing here!
+  %h2 Rien ici
   %p
-    = "We couldn't find anything that matched your search for <strong>#{params[:query]}</strong>.".html_safe 
-    You might want to try again.
+    = "Nous n'avons pas pu trouver d'élément qui concordait avec votre recherche pour <strong>#{params[:query]}</strong>.".html_safe 
+    Vous voudrez peut être chercher à nouveau.
     
 - else
   %ul.resource_list.search_results

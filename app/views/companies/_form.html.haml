@@ -1,14 +1,14 @@
 = semantic_form_for(@company, :html => {:multipart => true}) do |f|
   = f.inputs do
-    = f.input :name
-    = f.input :url, :label => 'Website'
-    = f.input :address, :as => :string, :hint => "e.g. 115 NW 5th, Portland, OR"
+    = f.input :name, :label => "Nom"
+    = f.input :url, :label => 'Site web'
+    = f.input :adresse, :as => :string, :hint => "e.g. 15 Av. Alsace Lorraine"
     = f.input :description
-    = f.input :tag_list, :as => :text, :label => 'Tags (industries, topics, etc)', :hint => "Comma separated, please", :input_html => {:class => 'tags'}
-    = f.input :technology_list, :as => :text, :label => 'Technologies used (languages, frameworks, etc)', :hint => "Comma separated, please", :input_html => {:class => 'tags'}
+    = f.input :tag_list, :as => :text, :label => 'Tags (industries, sujets, etc)', :hint => "Séparés par des virgules, svp", :input_html => {:class => 'tags'}
+    = f.input :technology_list, :as => :text, :label => 'Technologies utilisées (langages, frameworks, etc)', :hint => "Séparés par des virgules, svp", :input_html => {:class => 'tags'}
     - if @company.logo.file?
       %li
         .faux_label Current logo
         = image_tag @company.logo.url(:medium) if @company.logo.present?
-    = f.input :logo, :label => "Upload a logo", :hint => "Preferably 220px wide or larger"
+    = f.input :logo, :label => "Uploader un logo", :hint => "De préférence de 220px de large ou plus"
   = f.buttons

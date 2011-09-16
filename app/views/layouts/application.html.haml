@@ -8,7 +8,7 @@
       = "#{SETTINGS['organization']['name']}: #{SETTINGS['organization']['city']}'s Tech Directory"
     %meta{:name=>"viewport", :content=>"width=device-width, user-scalable=no"}
     %link{:rel => 'search', :type => 'application/opensearchdescription+xml', :href => '/opensearch.xml', :title => SETTINGS['organization']['name']}
-    %link{:href =>'http://fonts.googleapis.com/css?family=Comfortaa', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:href =>'http://fonts.googleapis.com/css?family=Comfortaa|Tulpen+One', :rel => 'stylesheet', :type => 'text/css'}
     - force_mobile = params[:force_mobile].present?
     -#
       Level 1: All browsers, evar.
@@ -44,9 +44,9 @@
   %body{:class => "#{controller_name} #{controller_name}_#{action_name} #{user_signed_in? ? 'signed_in' : 'not_signed_in'}"}
     #header
       .inner_container
-        %h1
+        %h1.logo
           %a{:href => root_path}
-            =#"#{SETTINGS['organization']['logotype']}".html_safe
+            ="#{SETTINGS['organization']['logotype']}".html_safe
             %img{:class => 'home_marker', :src => '/images/home_12x12.png',
               :height => 12, :width => 12}
         #account_box{:class => current_user.try(:admin?) ? 'admin' : nil}
@@ -55,7 +55,7 @@
               %img.avatar{:src => normalize_url(current_user.avatar_url), :align => 'left'}
             .name
               = link_to current_user.name, home_users_path
-            = link_to 'sign out', sign_out_path
+            = link_to 'se déconnecter', sign_out_path
           - else
             #global_sign_in
               = link_to "Connection / Inscription", sign_in_path, :id => 'sign_in_link'
@@ -83,15 +83,15 @@
 
     #footer
       #citizenry_credit
-        Powered by
+        Propulsé par
         = link_to("Citizenry", "http://github.com/reidab/citizenry/") + '.'
       #hosting_credit
-        Hosting thanks to
+        Hébergement par
         = link_to("#{SETTINGS['organization']['host']}", "#{SETTINGS['organization']['host_url']}") + '.'
       #contact_link
-        Questions? Comments? Desires? Email
+        Questions? Comments? Desirs? Email
         = mail_to "#{SETTINGS['organization']['email']}"
       #twitter_link
-        Follow
+        Suivre
         = twitter_link SETTINGS['organization']['twitter']
-        on Twitter
+        sur Twitter

@@ -1,17 +1,17 @@
 #welcome
-  %h1= "Hi #{@name.split(' ').first}!"
+  %h1= "Bonjour #{@name.split(' ').first}!"
   - if @possible_duplicates.present?
     #possible_duplicates
-      %h2 Might this be you?
+      %h2 Peut être que vous êtes cette personne ?
       %p.hint
-        == It looks like someone may have already added you to #{SETTINGS['organization']['name']}.
-        = @possible_duplicates.size == 1 ? 'Is this you?' : 'Are you any of these people?'
+        == Il semblerait que vous avez déjà été ajouté #{SETTINGS['organization']['name']}.
+        = @possible_duplicates.size == 1 ? 'Est ce vous ?' : 'Etes vous l'une de ces personnes?'
       = render :partial => 'people/list', :object => @possible_duplicates, :locals => {:context => :claim}
   #add_yourself
     - if @person.new_record?
-      %h2== Add yourself to #{SETTINGS['organization']['name']}
-      %p= "We imported as much info as we could from your #{provider_name(current_user.authentications.first.provider)} account. Look it over and hit the big button to get started."
+      %h2== Ajoutez vous à #{SETTINGS['organization']['name']}
+      %p= "Nous avons importé autant d'information que possible de votre compte #{provider_name(current_user.authentications.first.provider)}. Tournez la tête et cliquez sur le gros bouton pour commencer."
     - else
-      %h2 Review your details
-      %p= "You were already in the directory! Please review your details and let us know they're right."
+      %h2 Vérifiez vos détails
+      %p= "Vous êtes déjà dans la base de données ! Merci de vérifier vos détails et faites nous savoir s'ils sont bons."
     = render :partial => 'people/form', :locals => {:context => @person.new_record? ? :add_self : :review}

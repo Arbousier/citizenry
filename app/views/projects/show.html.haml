@@ -8,8 +8,8 @@
       =link_to normalize_url(@project.url), normalize_url(@project.url), :class => 'url'
 
   .record_actions
-    = link_to 'Edit', edit_project_path(@project), :class => 'edit'
-    = link_to "Delete", project_path(@project), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+    = link_to 'Editer', edit_project_path(@project), :class => 'edit'
+    = link_to "Supprimer", project_path(@project), :confirm => 'Etes vous sûr?', :method => :delete, :class => 'delete'
 
   - if @project.tags.present?
     .section.tags
@@ -22,10 +22,10 @@
       = render :partial => 'tags/list', :object => @project.technologies, :locals => {:type => :project}
 
   .section.members
-    %h2 Collaborators
+    %h2 Membres
     - if current_person
       - if @project.people.include?(current_person)
-        = link_to "Leave this project", leave_project_path(@project), :class => 'leave', :method => :post
+        = link_to "Quitter ce projet", leave_project_path(@project), :class => 'leave', :method => :post
       - else
-        = link_to "Join this project", join_project_path(@project), :class => 'join', :method => :post
+        = link_to "Rejoindre ce projet", join_project_path(@project), :class => 'join', :method => :post
     = render :partial => 'people/list', :object => @project.people, :locals => {:context => :member_list}

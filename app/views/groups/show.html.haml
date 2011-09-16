@@ -4,19 +4,19 @@
   - if @group.description.present?
     .description= simple_format @group.description
   - if @group.meeting_info.present?
-    %h2 Meeting Info
+    %h2 Informations de rencontres
     .description= simple_format @group.meeting_info
   .links
     - if [@group.url, @group.mailing_list].any?{|link| link.present?}
-      %h2 Links
+      %h2 Liens
     - if @group.url.present?
       =link_to normalize_url(@group.url), normalize_url(@group.url), :class => 'url'
     - if @group.mailing_list.present?
-      =link_to "Mailing List", normalize_url(@group.mailing_list), :class => 'mailing_list'
+      =link_to "Liste de discussion", normalize_url(@group.mailing_list), :class => 'mailing_list'
 
   .record_actions
-    = link_to 'Edit', edit_group_path(@group), :class => 'edit'
-    = link_to "Delete", group_path(@group), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+    = link_to 'Editer', edit_group_path(@group), :class => 'edit'
+    = link_to "Supprimer", group_path(@group), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
 
   - if @group.tags.present?
     .section.tags
@@ -29,10 +29,10 @@
       = render :partial => 'tags/list', :object => @group.technologies, :locals => {:type => :group}
 
   .section.members
-    %h2 Members
+    %h2 Membres
     - if current_person
       - if @group.members.include?(current_person)
-        = link_to "Leave this group", leave_group_path(@group), :class => 'leave', :method => :post
+        = link_to "Quitter ce groupe", leave_group_path(@group), :class => 'leave', :method => :post
       - else
-        = link_to "Join this group", join_group_path(@group), :class => 'join', :method => :post
+        = link_to "Joindre ce groupe", join_group_path(@group), :class => 'join', :method => :post
     = render :partial => 'people/list', :object => @group.members, :locals => {:context => :member_list}

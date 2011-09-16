@@ -6,8 +6,8 @@
   - if list_item.twitter.present?
     %span{:class => 'twitter_link'}
       %a{:href => "https://twitter.com/#{list_item.twitter}"}= "@#{list_item.twitter}"
-      on Twitter
+      sur Twitter
   %p{:class=>'bio'}= strip_links(list_item.bio)
   - if context == :claim
     .actions
-      = link_to "That's me!", claim_person_path(list_item), :class => 'claim'
+      = link_to "C'est moi !", claim_person_path(list_item), :class => 'claim'

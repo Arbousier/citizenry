@@ -10,8 +10,8 @@
       =link_to normalize_url(@company.url), normalize_url(@company.url), :class => 'url'
 
   .record_actions
-    = link_to 'Edit', edit_company_path(@company), :class => 'edit'
-    = link_to "Delete", company_path(@company), :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
+    = link_to 'Editer', edit_company_path(@company), :class => 'edit'
+    = link_to "Supprimer", company_path(@company), :confirm => 'Etes vous sûre?', :method => :delete, :class => 'delete'
 
   - if @company.tags.present?
     .section.tags
@@ -24,10 +24,10 @@
       = render :partial => 'tags/list', :object => @company.technologies, :locals => {:type => :company}
 
   .section.members
-    %h2 Employees
+    %h2 Employés
     - if current_person
       - if @company.employees.include?(current_person)
-        = link_to "Leave this company", leave_company_path(@company), :class => 'leave', :method => :post
+        = link_to "Quitter cette société", leave_company_path(@company), :class => 'leave', :method => :post
       - else
-        = link_to "Join this company", join_company_path(@company), :class => 'join', :method => :post
+        = link_to "Rejoindre cette société", join_company_path(@company), :class => 'join', :method => :post
     = render :partial => 'people/list', :object => @company.employees, :locals => {:context => :member_list}

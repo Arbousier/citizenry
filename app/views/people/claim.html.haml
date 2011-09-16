@@ -1,5 +1,5 @@
 %h1= "Claiming #{@person.name}"
 %p
-  = "This person was imported from #{provider_name(@person.imported_from_provider)}"
-  = "but you aren't logged in using your #{provider_name(@person.imported_from_provider)} account."
-=link_to "Sign in to #{provider_name(@person.imported_from_provider)} to continue", "/auth/#{@person.imported_from_provider}", :class => 'external'
+  = "Cette personne a été importée de #{provider_name(@person.imported_from_provider)}"
+  = "mais vous n'êtes pas connecté en utilisant votre compte #{provider_name(@person.imported_from_provider)}."
+=link_to "Se connecter à #{provider_name(@person.imported_from_provider)} pour continuer", "/auth/#{@person.imported_from_provider}", :class => 'external'
