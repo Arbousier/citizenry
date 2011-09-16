@@ -20,3 +20,5 @@ log/searchd.development.pid
 .\#*
 
 .rvmrc
+config/database.yml
+config/settings.yml
