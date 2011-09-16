@@ -1,4 +1,5 @@
 .bundle
+bundler/*
 db/*.sqlite3
 log/*.log
 tmp/**/*
@@ -17,3 +18,5 @@ log/searchd.development.pid
 *~
 \#*
 .\#*
+
+.rvmrc

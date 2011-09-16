@@ -8,12 +8,12 @@ gem 'rails', '3.0.9'
 #     export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
 #
 # Note: the exact path to your MySQL lib/ directory may vary.
-gem 'mysql2', '~> 0.2.0'
+#gem 'mysql2', '~> 0.2.0'
 # Uncomment if you're using sqlite
-# gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3-ruby', :require => 'sqlite3'
 
 
-gem 'hoptoad_notifier'
+#gem 'hoptoad_notifier'
 
 #--[ Utility ]------------------------------------------------------------------
 gem 'httparty', '~> 0.7.4'

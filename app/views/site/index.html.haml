@@ -1,15 +1,15 @@
 #site_intro
-  A community-edited guide to the
-  %span{:class => 'awesome'} awesome tech community
-  of
+  Un guide édité par la communauté de la 
+  %span{:class => 'awesome'} géniale communauté technologique
+  de
   = SETTINGS['organization']['city']+ ', ' + SETTINGS['organization']['state']
 
 %ul#front_nav
-  %h2#home_to Home to
-  %li.people= link_to semantic_pluralize(Person.count, "Person"), people_path
-  %li.companies= link_to semantic_pluralize(Company.count, "Company"), companies_path
-  %li.groups= link_to semantic_pluralize(Group.count, "Group"), groups_path
-  %li.projects= link_to semantic_pluralize(Project.count, "Project or Product", "Projects & Products"), projects_path
-  %li.resources= link_to semantic_pluralize(ResourceLink.count, "Resource"), resource_links_path
+  %h2#home_to Berceau de
+  %li.people= link_to semantic_pluralize(Person.count, "Personnes"), people_path
+  %li.companies= link_to semantic_pluralize(Company.count, "Sociétés"), companies_path
+  %li.groups= link_to semantic_pluralize(Group.count, "Groupes"), groups_path
+  %li.projects= link_to semantic_pluralize(Project.count, "Projets ou Produits", "Projets ou Produits"), projects_path
+  %li.resources= link_to semantic_pluralize(ResourceLink.count, "Ressources"), resource_links_path
   - if @events_count
-    %li.events= link_to semantic_pluralize(@events_count, "Upcoming event") + " on Calagator", 'http://calagator.org/events'
+    %li.events= link_to semantic_pluralize(@events_count, "Prochains évènements") + " on Calagator", 'http://calagator.org/events'

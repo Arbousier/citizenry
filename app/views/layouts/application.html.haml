@@ -8,6 +8,7 @@
       = "#{SETTINGS['organization']['name']}: #{SETTINGS['organization']['city']}'s Tech Directory"
     %meta{:name=>"viewport", :content=>"width=device-width, user-scalable=no"}
     %link{:rel => 'search', :type => 'application/opensearchdescription+xml', :href => '/opensearch.xml', :title => SETTINGS['organization']['name']}
+    %link{:href =>'http://fonts.googleapis.com/css?family=Comfortaa', :rel => 'stylesheet', :type => 'text/css'}
     - force_mobile = params[:force_mobile].present?
     -#
       Level 1: All browsers, evar.
@@ -45,7 +46,7 @@
       .inner_container
         %h1
           %a{:href => root_path}
-            ="#{SETTINGS['organization']['logotype']}".html_safe
+            =#"#{SETTINGS['organization']['logotype']}".html_safe
             %img{:class => 'home_marker', :src => '/images/home_12x12.png',
               :height => 12, :width => 12}
         #account_box{:class => current_user.try(:admin?) ? 'admin' : nil}
@@ -57,14 +58,14 @@
             = link_to 'sign out', sign_out_path
           - else
             #global_sign_in
-              = link_to "Sign In / Join", sign_in_path, :id => 'sign_in_link'
+              = link_to "Connection / Inscription", sign_in_path, :id => 'sign_in_link'
         %ul{:id=>'main_nav'}
-          %li= link_to "People", people_path, :class => 'people'
-          %li= link_to "Companies", companies_path, :class => 'companies'
-          %li= link_to "Groups", groups_path, :class => 'groups'
-          %li= link_to "Projects & Products", projects_path, :class => 'projects'
-          %li= link_to "Resources", resource_links_path, :class => 'resources'
-          /%li= link_to "Events", 'http://calagator.org', :class => 'events'
+          %li= link_to "Personnes", people_path, :class => 'people'
+          %li= link_to "Sociétés", companies_path, :class => 'companies'
+          %li= link_to "Groupes", groups_path, :class => 'groups'
+          %li= link_to "Projets & Produits", projects_path, :class => 'projects'
+          %li= link_to "Ressources", resource_links_path, :class => 'resources'
+          /%li= link_to "Evènements", 'http://calagator.org', :class => 'events'
 
         %form{:action => search_path, :method => :get, :id => 'global_search'}
           %input{ :type => 'search', :placeholder => 'Search…', :name => 'q', :value => params[:query], |
